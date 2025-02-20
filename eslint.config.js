@@ -13,7 +13,8 @@ export default [
     },
     plugins: { ts, prettier: prettierPlugin },
     rules: {
-      "prettier/prettier": "error",
+      "linebreak-style": "off", // Disables ESLint line ending checks
+      "prettier/prettier": ["error", { "endOfLine": "auto" }], // Lets Prettier handle line endings automatically
       "ts/no-unused-vars": "warn"
     }
   },
