@@ -6,7 +6,7 @@ import {
   darkTheme as defaultDarkTheme,
   lightTheme as defaultLightTheme,
 } from "./Themes";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 interface ThemeContextType {
@@ -23,9 +23,26 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 function App() {
-  const [themeSwitch, setThemeSwitch] = useState<Theme>("light");
-  const [darkTheme, setDarkTheme] = useState<object>(defaultDarkTheme);
-  const [lightTheme, setLightTheme] = useState<object>(defaultLightTheme);
+  // Load themes from local storage or use defaults
+  const getStoredTheme = (key: string, defaultValue: object) => {
+    const storedTheme = localStorage.getItem(key);
+    return storedTheme ? JSON.parse(storedTheme) : defaultValue;
+  };
+
+  const [themeSwitch, setThemeSwitch] = useState<Theme>(
+    (localStorage.getItem("themeSwitch") as Theme) || "light",
+  );
+  const [darkTheme, setDarkTheme] = useState<object>(
+    getStoredTheme("darkTheme", defaultDarkTheme),
+  );
+  const [lightTheme, setLightTheme] = useState<object>(
+    getStoredTheme("lightTheme", defaultLightTheme),
+  );
+
+  useEffect(() => {
+    localStorage.setItem("themeSwitch", themeSwitch);
+  }, [themeSwitch]);
+
   return (
     <ThemeContext.Provider
       value={{
