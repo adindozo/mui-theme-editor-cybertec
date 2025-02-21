@@ -26,6 +26,14 @@ function App() {
   // Load themes from local storage or use defaults
   const getStoredTheme = (key: string, defaultValue: object) => {
     const storedTheme = localStorage.getItem(key);
+    if (!storedTheme) {
+      // Store default theme in local storage if none found
+      console.log(
+        "Storing default theme in local storage",
+        JSON.stringify(defaultValue),
+      );
+      localStorage.setItem(key, JSON.stringify(defaultValue));
+    }
     return storedTheme ? JSON.parse(storedTheme) : defaultValue;
   };
 
