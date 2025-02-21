@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   AppBar,
   Toolbar,
@@ -12,12 +11,18 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MaterialUISwitch from "./MaterialUISwitch";
+import { MouseEvent, useContext, useState } from "react";
+import { ThemeContext } from "../App";
 
 export default function Header() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const context = useContext(ThemeContext);
+  if (!context) return null;
+  const { themeSwitch, setThemeSwitch, darkTheme, lightTheme } = context;
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -34,7 +39,12 @@ export default function Header() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Cybertec PostgreSQL
         </Typography>
-        <MaterialUISwitch />
+        <MaterialUISwitch
+          checked={themeSwitch === "dark"}
+          onChange={() => {
+            setThemeSwitch(themeSwitch === "dark" ? "light" : "dark");
+          }}
+        />
 
         {/* Desktop Menu (Visible on larger screens) */}
         {!isMobile ? (
@@ -68,7 +78,7 @@ export default function Header() {
             >
               <MenuItem onClick={handleClose}>Home</MenuItem>
               <MenuItem onClick={handleClose}>Services</MenuItem>
-              <MenuItem onClick={handleClose}>Clients</MenuItem>
+              <MenuItem>Clients</MenuItem>
               <MenuItem onClick={handleClose}>Contact</MenuItem>
             </Menu>
           </>
