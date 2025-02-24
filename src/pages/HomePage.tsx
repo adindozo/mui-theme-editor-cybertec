@@ -80,7 +80,7 @@ export default function HomePage() {
                 desc: "Optimize and scale your PostgreSQL infrastructure in the cloud.",
               },
             ].map((service) => (
-              <Grid size={6}>
+              <Grid size={6} key={service.title}>
                 <Card sx={{ textAlign: "center", p: 2 }}>
                   <CardContent>
                     <Typography variant="h5" gutterBottom>

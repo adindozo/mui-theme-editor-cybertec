@@ -1,7 +1,6 @@
 // Default JSON object creator for light and dark themes
-import { createTheme } from "@mui/material/styles";
 
-export const lightTheme = createTheme({
+export const lightTheme = {
   palette: {
     mode: "light",
   },
@@ -14,9 +13,9 @@ export const lightTheme = createTheme({
       },
     },
   },
-});
+};
 
-export const darkTheme = createTheme({
+export const darkTheme = {
   palette: {
     mode: "dark",
   },
@@ -29,6 +28,6 @@ export const darkTheme = createTheme({
       },
     },
   },
-});
+};
 
 // console.log(darkTheme);

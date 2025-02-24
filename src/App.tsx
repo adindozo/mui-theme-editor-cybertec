@@ -7,6 +7,7 @@ import {
   lightTheme as defaultLightTheme,
 } from "./Themes";
 import { createContext, useEffect, useState } from "react";
+import { createTheme } from "@mui/material";
 type Theme = "light" | "dark";
 
 interface ThemeContextType {
@@ -23,18 +24,15 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 function App() {
-  // Load themes from local storage or use defaults
   const getStoredTheme = (key: string, defaultValue: object) => {
     const storedTheme = localStorage.getItem(key);
     if (!storedTheme) {
-      // Store default theme in local storage if none found
-      console.log(
-        "Storing default theme in local storage",
-        JSON.stringify(defaultValue),
-      );
       localStorage.setItem(key, JSON.stringify(defaultValue));
+      return defaultValue; // Return default theme if not found
     }
-    return storedTheme ? JSON.parse(storedTheme) : defaultValue;
+    const parsedTheme = JSON.parse(storedTheme);
+
+    return createTheme(parsedTheme); // Reconstruct theme with MUI function
   };
 
   const [themeSwitch, setThemeSwitch] = useState<Theme>(
