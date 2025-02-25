@@ -9,6 +9,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { createTheme } from "@mui/material";
 type Theme = "light" | "dark";
+type ViewMode = "mobile" | "desktop";
 
 interface ThemeContextType {
   themeSwitch: Theme;
@@ -17,6 +18,8 @@ interface ThemeContextType {
   setDarkTheme: React.Dispatch<React.SetStateAction<object>>;
   lightTheme: object;
   setLightTheme: React.Dispatch<React.SetStateAction<object>>;
+  view: ViewMode;
+  setView: React.Dispatch<React.SetStateAction<ViewMode>>;
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(
@@ -45,6 +48,8 @@ function App() {
     getStoredTheme("lightTheme", defaultLightTheme),
   );
 
+  const [view, setView] = useState<ViewMode>("desktop");
+
   useEffect(() => {
     localStorage.setItem("themeSwitch", themeSwitch);
   }, [themeSwitch]);
@@ -58,6 +63,8 @@ function App() {
         setDarkTheme,
         lightTheme,
         setLightTheme,
+        view,
+        setView,
       }}
     >
       <Routes>
