@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ThemeContext } from "../App";
@@ -26,7 +26,13 @@ export default function HomePage() {
   const { themeSwitch, darkTheme, lightTheme } = context;
 
   return (
-    <ThemeProvider theme={themeSwitch === "dark" ? darkTheme : lightTheme}>
+    <ThemeProvider
+      theme={
+        themeSwitch === "dark"
+          ? createTheme(darkTheme)
+          : createTheme(lightTheme)
+      }
+    >
       <CssBaseline />
       {/* HEADER */}
       <Header />

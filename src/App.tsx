@@ -31,11 +31,11 @@ function App() {
     const storedTheme = localStorage.getItem(key);
     if (!storedTheme) {
       localStorage.setItem(key, JSON.stringify(defaultValue));
-      return defaultValue; // Return default theme if not found
+      return defaultValue; 
     }
     const parsedTheme = JSON.parse(storedTheme);
 
-    return createTheme(parsedTheme); // Reconstruct theme with MUI function
+    return parsedTheme; 
   };
 
   const [themeSwitch, setThemeSwitch] = useState<Theme>(
