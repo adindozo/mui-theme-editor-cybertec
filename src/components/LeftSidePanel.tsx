@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import { SimpleTreeView, TreeItem } from "@mui/x-tree-view";
 import React from "react";
 import { Colors } from "./Colors";
+import { Typography } from "./Typography";
 
 export const LeftSidePanel = () => {
   return (
@@ -16,16 +17,8 @@ export const LeftSidePanel = () => {
       <Box sx={{ minHeight: 352, minWidth: 250 }}>
         <SimpleTreeView>
           <Colors />
+          <Typography />
 
-          {/* Typography */}
-          <TreeItem itemId="typography" label="Typography">
-            <TreeItem itemId="fontFamily" label="Font Family" />
-            <TreeItem itemId="headingSizes" label="Heading Sizes (h1-h6)" />
-            <TreeItem itemId="bodyTextSize" label="Body Text Size" />
-            <TreeItem itemId="letterSpacing" label="Letter Spacing" />
-          </TreeItem>
-
-          {/* Spacing & Breakpoints */}
           <TreeItem itemId="spacing" label="Spacing & Breakpoints">
             <TreeItem itemId="spacingScale" label="Spacing Scale" />
             <TreeItem

@@ -61,7 +61,13 @@ export default function HomePage() {
             Get Started
           </Button>
         </Box>
-
+        <Typography component="div">
+          <Box sx={{ fontWeight: "light", m: 1 }}>Light Font Weight</Box>
+          <Box sx={{ fontWeight: "regular", m: 1 }}>Regular Font Weight</Box>
+          <Box sx={{ fontWeight: "medium", m: 1 }}>Medium Font Weight</Box>
+          <Box sx={{ fontWeight: 500, m: 1 }}>500 Font Weight</Box>
+          <Box sx={{ fontWeight: "bold", m: 1 }}>Bold Font Weight</Box>
+        </Typography>
         {/* FEATURED SERVICES */}
         <Container sx={{ py: 6 }}>
           <Typography variant="h2" align="center" gutterBottom>
