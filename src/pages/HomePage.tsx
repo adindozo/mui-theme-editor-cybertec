@@ -133,18 +133,16 @@ export default function HomePage() {
 
         <Box sx={{ padding: 2 }}>
           <Typography variant="h1" gutterBottom>
-            h1 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            h1 text Lorem ipsum dolor sit amet.
           </Typography>
           <Typography variant="h2" gutterBottom>
             h2 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur venenatis felis at nunc malesuada, a tincidunt lectus
-            tincidunt.
+            Curabitur venenatis felis at nunc malesuada.
           </Typography>
           <Typography variant="h3" gutterBottom>
             h3 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Curabitur venenatis felis at nunc malesuada, a tincidunt lectus
-            tincidunt. Nam ornare, ligula non faucibus lobortis, sapien arcu
-            interdum felis, ac fermentum purus magna et nunc.
+            tincidunt.
           </Typography>
           <Typography variant="h4" gutterBottom>
             h4 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -152,6 +150,34 @@ export default function HomePage() {
             tincidunt. Nam ornare, ligula non faucibus lobortis, sapien arcu
             interdum felis, ac fermentum purus magna et nunc.
           </Typography>
+          <Typography variant="h5" gutterBottom>
+            h5 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur venenatis felis at nunc malesuada, a tincidunt lectus
+            tincidunt. Nam ornare, ligula non faucibus lobortis, sapien arcu
+            interdum felis, ac fermentum purus magna et nunc. Integer vel libero
+            in elit
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            h5 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur venenatis felis at nunc malesuada, a tincidunt lectus
+            tincidunt. Nam ornare, ligula non faucibus lobortis, sapien arcu
+            interdum felis, ac fermentum purus magna et nunc. Integer vel libero
+            in elit
+          </Typography>
+
+          <Typography variant="body1" gutterBottom>
+            body1 text Sed tempus mi eget eros convallis, ac fermentum metus
+            fringilla. Donec cursus augue non dui tristique laoreet. Integer
+            fermentum dui ut nisi efficitur, vel venenatis lorem vestibulum.
+            Suspendisse potenti. Ut sollicitudin pharetra sem. Phasellus at
+            felis gravida, cursus sem ac, congue felis. Etiam auctor, libero in
+            tempor vulputate, nunc tortor sollicitudin nisi, nec ullamcorper
+            felis lorem id nisi. Integer efficitur urna et nisl mollis, at
+            scelerisque orci convallis. Cras interdum, orci nec dignissim
+            placerat, sapien ante dictum purus, et volutpat metus arcu a augue.
+            Integer sollicitudin ex non risus luctus, vitae cursus enim varius.
+          </Typography>
+          <Typography variant="caption">Caption text here</Typography>
           <Box
             display="flex"
             justifyContent="center"
@@ -180,19 +206,6 @@ export default function HomePage() {
               </Paper>
             ))}
           </Box>
-
-          <Typography variant="body1" gutterBottom>
-            body1 text Sed tempus mi eget eros convallis, ac fermentum metus
-            fringilla. Donec cursus augue non dui tristique laoreet. Integer
-            fermentum dui ut nisi efficitur, vel venenatis lorem vestibulum.
-            Suspendisse potenti. Ut sollicitudin pharetra sem. Phasellus at
-            felis gravida, cursus sem ac, congue felis. Etiam auctor, libero in
-            tempor vulputate, nunc tortor sollicitudin nisi, nec ullamcorper
-            felis lorem id nisi. Integer efficitur urna et nisl mollis, at
-            scelerisque orci convallis. Cras interdum, orci nec dignissim
-            placerat, sapien ante dictum purus, et volutpat metus arcu a augue.
-            Integer sollicitudin ex non risus luctus, vitae cursus enim varius.
-          </Typography>
         </Box>
         {/* <FixedBottomNavigation /> */}
       </Container>
