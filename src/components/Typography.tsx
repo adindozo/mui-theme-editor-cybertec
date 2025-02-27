@@ -17,7 +17,7 @@ export const Typography = () => {
     if (typeof letterSpacing === "string" && letterSpacing.includes("em")) {
       return Math.round(parseFloat(letterSpacing) * 100);
     }
-    return 0; // Default case
+    return 0;
   };
   return (
     <TreeItem itemId="typography" label="Typography">
@@ -460,133 +460,54 @@ export const Typography = () => {
             valueLabelDisplay="auto"
           ></Slider>
         </Box>
+        <Box sx={{ ml: 2 }}>
+          {[1, 2, 3, 4, 5, 6].map((headingLevel) => (
+            <Box key={headingLevel}>
+              <TextField
+                sx={{ mt: 2 }}
+                label={`h${headingLevel} Letter spacing in %`}
+                type="number"
+                inputProps={{ min: -100, max: 100 }}
+                value={
+                  themeSwitch === "light"
+                    ? convertLetterSpacingToNumber(
+                        lightTheme.typography[`h${headingLevel}`].letterSpacing,
+                      )
+                    : convertLetterSpacingToNumber(
+                        darkTheme.typography[`h${headingLevel}`].letterSpacing,
+                      )
+                }
+                onChange={(e) => {
+                  const newLetterSpacing = e.target.value / 100 + "em";
 
-        <TextField
-          sx={{ mt: 2 }}
-          label="h1 Letter Spacing in %"
-          type="number"
-          min={-100}
-          max={100}
-          value={
-            themeSwitch === "light"
-              ? convertLetterSpacingToNumber(
-                  lightTheme.typography.h1.letterSpacing,
-                )
-              : convertLetterSpacingToNumber(
-                  darkTheme.typography.h1.letterSpacing,
-                )
-          }
-          onChange={(e) => {
-            if (themeSwitch === "light") {
-              setLightTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h1: {
-                    ...prevTheme.typography.h1,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            } else {
-              setDarkTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h1: {
-                    ...prevTheme.typography.h1,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            }
-          }}
-          fullWidth
-        />
-        <TextField
-          sx={{ mt: 2 }}
-          label="h2 Letter Spacing in %"
-          type="number"
-          min={-100}
-          max={100}
-          value={
-            themeSwitch === "light"
-              ? convertLetterSpacingToNumber(
-                  lightTheme.typography.h2.letterSpacing,
-                )
-              : convertLetterSpacingToNumber(
-                  darkTheme.typography.h2.letterSpacing,
-                )
-          }
-          onChange={(e) => {
-            if (themeSwitch === "light") {
-              setLightTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h2: {
-                    ...prevTheme.typography.h2,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            } else {
-              setDarkTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h2: {
-                    ...prevTheme.typography.h2,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            }
-          }}
-          fullWidth
-        />
-        <TextField
-          sx={{ mt: 2 }}
-          label="h3 Letter Spacing in %"
-          type="number"
-          min={-100}
-          max={100}
-          value={
-            themeSwitch === "light"
-              ? convertLetterSpacingToNumber(
-                  lightTheme.typography.h3.letterSpacing,
-                )
-              : convertLetterSpacingToNumber(
-                  darkTheme.typography.h3.letterSpacing,
-                )
-          }
-          onChange={(e) => {
-            if (themeSwitch === "light") {
-              setLightTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h3: {
-                    ...prevTheme.typography.h3,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            } else {
-              setDarkTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  h3: {
-                    ...prevTheme.typography.h3,
-                    letterSpacing: e.target.value / 100 + "em",
-                  },
-                },
-              }));
-            }
-          }}
-          fullWidth
-        />
+                  if (themeSwitch === "light") {
+                    setLightTheme((prevTheme) => ({
+                      ...prevTheme,
+                      typography: {
+                        ...prevTheme.typography,
+                        [`h${headingLevel}`]: {
+                          ...prevTheme.typography[`h${headingLevel}`],
+                          letterSpacing: newLetterSpacing,
+                        },
+                      },
+                    }));
+                  } else {
+                    setDarkTheme((prevTheme) => ({
+                      ...prevTheme,
+                      typography: {
+                        ...prevTheme.typography,
+                        [`h${headingLevel}`]: {
+                          ...prevTheme.typography[`h${headingLevel}`],
+                          letterSpacing: newLetterSpacing,
+                        },
+                      },
+                    }));
+                  }
+                }}
+              />
+            </Box>
+          ))}
+        </Box>
       </TreeItem>
     </TreeItem>
   );
