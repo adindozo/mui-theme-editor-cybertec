@@ -19,9 +19,38 @@ export const Typography = () => {
     }
     return 0;
   };
+  const handleKeyDown = (event) => {
+    event.stopPropagation();
+  };
   return (
     <TreeItem itemId="typography" label="Typography">
-      <TreeItem itemId="fontFamily" label="Font Family" />
+      <TreeItem itemId="fontFamily" label="Font Family">
+        <TextField
+          label="Google Font URL"
+          variant="outlined"
+          fullWidth
+          onKeyDown={handleKeyDown}
+          onChange={(e) => {
+            if (themeSwitch === "light") {
+              setLightTheme((prevTheme) => ({
+                ...prevTheme,
+                typography: {
+                  ...prevTheme.typography,
+                  fontFamily: e.target.value,
+                },
+              }));
+            } else {
+              setDarkTheme((prevTheme) => ({
+                ...prevTheme,
+                typography: {
+                  ...prevTheme.typography,
+                  fontFamily: e.target.value,
+                },
+              }));
+            }
+          }}
+        />
+      </TreeItem>
       <TreeItem itemId="headingSizes" label="Heading Sizes (h1-h6)">
         {/*Modify font sizes for headings (h1–h6)*/}
         <Box sx={{ ml: 2 }}>
