@@ -21,7 +21,6 @@ const GoogleFontsList = () => {
   if (!googlefonts) {
     return <p>Loading...</p>;
   }
-  console.log(googlefonts);
 
   return (
     <div
@@ -47,7 +46,7 @@ const GoogleFontsList = () => {
             >
               <CardContent style={{ flexGrow: 1 }}>
                 <Typography variant="h6">
-                  {fontName.replace(/\+/g, " ")}
+                  {fontName.replace(/\+/g, " ").replace(/:.*$/, "")}
                 </Typography>
               </CardContent>
               <IconButton onClick={() => removeFont(fontUrl)}>

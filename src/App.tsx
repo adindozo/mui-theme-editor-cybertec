@@ -8,6 +8,7 @@ import {
 } from "./Themes";
 import { createContext, useEffect, useState } from "react";
 import { createTheme } from "@mui/material";
+import useLoadGoogleFonts from "./components/useLoadGoogleFonts";
 type Theme = "light" | "dark";
 type ViewMode = "mobile" | "desktop";
 
@@ -61,7 +62,6 @@ function App() {
     const storedGooglefonts = localStorage.getItem("googlefonts");
     if (storedGooglefonts) {
       setGooglefonts(JSON.parse(storedGooglefonts));
-      console.log("yes");
     } else {
       const defaultFonts: string[] = [
         "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
@@ -74,6 +74,7 @@ function App() {
       localStorage.setItem("googlefonts", JSON.stringify(defaultFonts));
     }
   }, []);
+  useLoadGoogleFonts(googlefonts);
   return (
     <ThemeContext.Provider
       value={{

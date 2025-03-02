@@ -1,19 +1,59 @@
-import { Box, Button, Input, Slider, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Input,
+  MenuItem,
+  Select,
+  Slider,
+  TextField,
+} from "@mui/material";
 import { TreeItem } from "@mui/x-tree-view";
 import React, { useContext } from "react";
 import { ThemeContext } from "../App";
 import GoogleFontsList from "./GoogleFontsList";
 import { Container } from "lucide-react";
+import AddGoogleFont from "./AddGoogleFont";
 
 export const Typography = () => {
   const context = useContext(ThemeContext);
   if (!context) return null;
 
-  const { themeSwitch, darkTheme, lightTheme, setLightTheme, setDarkTheme } =
-    context;
-  console.log(lightTheme);
+  const {
+    themeSwitch,
+    darkTheme,
+    lightTheme,
+    setLightTheme,
+    setDarkTheme,
+    googlefonts,
+  } = context;
+  const handleFontChange = (headingLevel: number, selectedFont: string) => {
+    if (themeSwitch === "light") {
+      setLightTheme((prevTheme) => ({
+        ...prevTheme,
+        typography: {
+          ...prevTheme.typography,
+          [`h${headingLevel}`]: {
+            ...prevTheme.typography[`h${headingLevel}`],
+            fontFamily: selectedFont,
+          },
+        },
+      }));
+    } else {
+      setDarkTheme((prevTheme) => ({
+        ...prevTheme,
+        typography: {
+          ...prevTheme.typography,
+          [`h${headingLevel}`]: {
+            ...prevTheme.typography[`h${headingLevel}`],
+            fontFamily: selectedFont,
+          },
+        },
+      }));
+    }
+  };
   function removeLetters(input) {
-    return input.replace(/[^0-9.-]/g, "");
+    console.log(input);
+    return input?.replace(/[^0-9.-]/g, "");
   }
   const convertLetterSpacingToNumber = (letterSpacing) => {
     if (typeof letterSpacing === "string" && letterSpacing.includes("em")) {
@@ -27,34 +67,7 @@ export const Typography = () => {
   return (
     <TreeItem itemId="typography" label="Typography">
       <TreeItem itemId="fontFamily" label="Font Family">
-        <Box sx={{ display: "flex", alignItems: "stretch" }}>
-          <TextField
-            sx={{ ml: 2 }}
-            label="Google Font URL"
-            variant="outlined"
-            onKeyDown={handleKeyDown}
-            onChange={(e) => {
-              if (themeSwitch === "light") {
-                setLightTheme((prevTheme) => ({
-                  ...prevTheme,
-                  typography: {
-                    ...prevTheme.typography,
-                    fontFamily: e.target.value,
-                  },
-                }));
-              } else {
-                setDarkTheme((prevTheme) => ({
-                  ...prevTheme,
-                  typography: {
-                    ...prevTheme.typography,
-                    fontFamily: e.target.value,
-                  },
-                }));
-              }
-            }}
-          />
-          <Button>Add +</Button>
-        </Box>
+        <AddGoogleFont />
         <GoogleFontsList />
         {/*Modify font families for headings (h1–h6)*/}
         <Box
@@ -67,43 +80,49 @@ export const Typography = () => {
           }}
         >
           {[1, 2, 3, 4, 5, 6].map((headingLevel) => (
-            <TextField
-              key={headingLevel}
-              label={`h${headingLevel} Font Family`}
-              variant="outlined"
-              onKeyDown={handleKeyDown}
-              onChange={(e) => {
-                if (themeSwitch === "light") {
-                  setLightTheme((prevTheme) => ({
-                    ...prevTheme,
-                    typography: {
-                      ...prevTheme.typography,
-                      [`h${headingLevel}`]: {
-                        ...prevTheme.typography[`h${headingLevel}`],
-                        fontFamily: e.target.value,
-                      },
-                    },
-                  }));
-                } else {
-                  setDarkTheme((prevTheme) => ({
-                    ...prevTheme,
-                    typography: {
-                      ...prevTheme.typography,
-                      [`h${headingLevel}`]: {
-                        ...prevTheme.typography[`h${headingLevel}`],
-                        fontFamily: e.target.value,
-                      },
-                    },
-                  }));
+            <div key={headingLevel}>
+              <p
+                variant="h6"
+                style={{ margin: "0px" }}
+              >{`h${headingLevel} Font Family`}</p>
+              <Select
+                fullWidth
+                value={
+                  context[themeSwitch === "light" ? "lightTheme" : "darkTheme"]
+                    .typography?.[`h${headingLevel}`]?.fontFamily || ""
                 }
-              }}
-            />
+                onChange={(e) => handleFontChange(headingLevel, e.target.value)}
+              >
+                {googlefonts.length > 0 ? (
+                  googlefonts.map((fontUrl, index) => {
+                    const fontName =
+                      new URL(fontUrl).searchParams.get("family") ||
+                      "Unknown Font";
+                    return (
+                      <MenuItem
+                        key={index}
+                        value={fontName.replace(/\+/g, " ").replace(/:.*$/, "")}
+                      >
+                        {fontName.replace(/\+/g, " ").replace(/:.*$/, "")}
+                      </MenuItem>
+                    );
+                  })
+                ) : (
+                  <MenuItem disabled>No fonts available</MenuItem>
+                )}
+              </Select>
+            </div>
           ))}
           {/*Modify font families for body*/}
-          <TextField
-            label="Body Text Font Family"
-            variant="outlined"
-            onKeyDown={handleKeyDown}
+          <div>
+            <p variant="h6" style={{ margin: "0px" }}>{`Body Font Family`}</p>
+          </div>
+          <Select
+            fullWidth
+            value={
+              context[themeSwitch === "light" ? "lightTheme" : "darkTheme"]
+                .typography?.body1?.fontFamily || ""
+            }
             onChange={(e) => {
               if (themeSwitch === "light") {
                 setLightTheme((prevTheme) => ({
@@ -111,7 +130,7 @@ export const Typography = () => {
                   typography: {
                     ...prevTheme.typography,
                     body1: {
-                      ...prevTheme.typography.body1,
+                      ...prevTheme.typography.body,
                       fontFamily: e.target.value,
                     },
                   },
@@ -122,14 +141,31 @@ export const Typography = () => {
                   typography: {
                     ...prevTheme.typography,
                     body1: {
-                      ...prevTheme.typography.body1,
+                      ...prevTheme.typography.body,
                       fontFamily: e.target.value,
                     },
                   },
                 }));
               }
             }}
-          />
+          >
+            {googlefonts.length > 0 ? (
+              googlefonts.map((fontUrl, index) => {
+                const fontName =
+                  new URL(fontUrl).searchParams.get("family") || "Unknown Font";
+                return (
+                  <MenuItem
+                    key={index}
+                    value={fontName.replace(/\+/g, " ").replace(/:.*$/, "")}
+                  >
+                    {fontName.replace(/\+/g, " ").replace(/:.*$/, "")}
+                  </MenuItem>
+                );
+              })
+            ) : (
+              <MenuItem disabled>No fonts available</MenuItem>
+            )}
+          </Select>
         </Box>
       </TreeItem>
       <TreeItem itemId="headingSizes" label="Heading Sizes (h1-h6)">
