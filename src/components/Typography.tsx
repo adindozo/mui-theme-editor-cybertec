@@ -1,7 +1,9 @@
-import { Box, Input, Slider, TextField } from "@mui/material";
+import { Box, Button, Input, Slider, TextField } from "@mui/material";
 import { TreeItem } from "@mui/x-tree-view";
 import React, { useContext } from "react";
 import { ThemeContext } from "../App";
+import GoogleFontsList from "./GoogleFontsList";
+import { Container } from "lucide-react";
 
 export const Typography = () => {
   const context = useContext(ThemeContext);
@@ -25,31 +27,110 @@ export const Typography = () => {
   return (
     <TreeItem itemId="typography" label="Typography">
       <TreeItem itemId="fontFamily" label="Font Family">
-        <TextField
-          label="Google Font URL"
-          variant="outlined"
-          fullWidth
-          onKeyDown={handleKeyDown}
-          onChange={(e) => {
-            if (themeSwitch === "light") {
-              setLightTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  fontFamily: e.target.value,
-                },
-              }));
-            } else {
-              setDarkTheme((prevTheme) => ({
-                ...prevTheme,
-                typography: {
-                  ...prevTheme.typography,
-                  fontFamily: e.target.value,
-                },
-              }));
-            }
+        <Box sx={{ display: "flex", alignItems: "stretch" }}>
+          <TextField
+            sx={{ ml: 2 }}
+            label="Google Font URL"
+            variant="outlined"
+            onKeyDown={handleKeyDown}
+            onChange={(e) => {
+              if (themeSwitch === "light") {
+                setLightTheme((prevTheme) => ({
+                  ...prevTheme,
+                  typography: {
+                    ...prevTheme.typography,
+                    fontFamily: e.target.value,
+                  },
+                }));
+              } else {
+                setDarkTheme((prevTheme) => ({
+                  ...prevTheme,
+                  typography: {
+                    ...prevTheme.typography,
+                    fontFamily: e.target.value,
+                  },
+                }));
+              }
+            }}
+          />
+          <Button>Add +</Button>
+        </Box>
+        <GoogleFontsList />
+        {/*Modify font families for headings (h1–h6)*/}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            ml: 2,
+            flexWrap: "wrap",
+            gap: 2,
           }}
-        />
+        >
+          {[1, 2, 3, 4, 5, 6].map((headingLevel) => (
+            <TextField
+              key={headingLevel}
+              label={`h${headingLevel} Font Family`}
+              variant="outlined"
+              onKeyDown={handleKeyDown}
+              onChange={(e) => {
+                if (themeSwitch === "light") {
+                  setLightTheme((prevTheme) => ({
+                    ...prevTheme,
+                    typography: {
+                      ...prevTheme.typography,
+                      [`h${headingLevel}`]: {
+                        ...prevTheme.typography[`h${headingLevel}`],
+                        fontFamily: e.target.value,
+                      },
+                    },
+                  }));
+                } else {
+                  setDarkTheme((prevTheme) => ({
+                    ...prevTheme,
+                    typography: {
+                      ...prevTheme.typography,
+                      [`h${headingLevel}`]: {
+                        ...prevTheme.typography[`h${headingLevel}`],
+                        fontFamily: e.target.value,
+                      },
+                    },
+                  }));
+                }
+              }}
+            />
+          ))}
+          {/*Modify font families for body*/}
+          <TextField
+            label="Body Text Font Family"
+            variant="outlined"
+            onKeyDown={handleKeyDown}
+            onChange={(e) => {
+              if (themeSwitch === "light") {
+                setLightTheme((prevTheme) => ({
+                  ...prevTheme,
+                  typography: {
+                    ...prevTheme.typography,
+                    body1: {
+                      ...prevTheme.typography.body1,
+                      fontFamily: e.target.value,
+                    },
+                  },
+                }));
+              } else {
+                setDarkTheme((prevTheme) => ({
+                  ...prevTheme,
+                  typography: {
+                    ...prevTheme.typography,
+                    body1: {
+                      ...prevTheme.typography.body1,
+                      fontFamily: e.target.value,
+                    },
+                  },
+                }));
+              }
+            }}
+          />
+        </Box>
       </TreeItem>
       <TreeItem itemId="headingSizes" label="Heading Sizes (h1-h6)">
         {/*Modify font sizes for headings (h1–h6)*/}

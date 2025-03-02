@@ -20,6 +20,8 @@ interface ThemeContextType {
   setLightTheme: React.Dispatch<React.SetStateAction<object>>;
   view: ViewMode;
   setView: React.Dispatch<React.SetStateAction<ViewMode>>;
+  googlefonts: string[];
+  setGooglefonts: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(
@@ -27,15 +29,17 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 function App() {
+  const [googlefonts, setGooglefonts] = useState<string[]>([]);
+
   const getStoredTheme = (key: string, defaultValue: object) => {
     const storedTheme = localStorage.getItem(key);
     if (!storedTheme) {
       localStorage.setItem(key, JSON.stringify(defaultValue));
-      return defaultValue; 
+      return defaultValue;
     }
     const parsedTheme = JSON.parse(storedTheme);
 
-    return parsedTheme; 
+    return parsedTheme;
   };
 
   const [themeSwitch, setThemeSwitch] = useState<Theme>(
@@ -53,7 +57,23 @@ function App() {
   useEffect(() => {
     localStorage.setItem("themeSwitch", themeSwitch);
   }, [themeSwitch]);
-
+  useEffect(() => {
+    const storedGooglefonts = localStorage.getItem("googlefonts");
+    if (storedGooglefonts) {
+      setGooglefonts(JSON.parse(storedGooglefonts));
+      console.log("yes");
+    } else {
+      const defaultFonts: string[] = [
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap",
+      ];
+      setGooglefonts(defaultFonts);
+      localStorage.setItem("googlefonts", JSON.stringify(defaultFonts));
+    }
+  }, []);
   return (
     <ThemeContext.Provider
       value={{
@@ -65,6 +85,8 @@ function App() {
         setLightTheme,
         view,
         setView,
+        googlefonts,
+        setGooglefonts,
       }}
     >
       <Routes>

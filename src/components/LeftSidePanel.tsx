@@ -8,13 +8,14 @@ export const LeftSidePanel = () => {
   return (
     <Box
       sx={{
-        width: "20%",
-        height: "calc(100vh-640px)",
+        minWidth: "400px",
+        maxHeight: "calc(100vh - 64px)",
         backgroundColor: "#f0f0f0",
         color: "black",
+        overflowY: "auto",
       }}
     >
-      <Box sx={{ minHeight: 352, minWidth: 250 }}>
+      <Box>
         <SimpleTreeView>
           <Colors />
           <Typography />
