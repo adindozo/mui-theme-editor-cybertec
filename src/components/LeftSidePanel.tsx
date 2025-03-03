@@ -3,6 +3,7 @@ import { SimpleTreeView, TreeItem } from "@mui/x-tree-view";
 import React from "react";
 import { Colors } from "./Colors";
 import { Typography } from "./Typography";
+import CustomCssEditor from "./CustomCssEditor";
 
 export const LeftSidePanel = () => {
   return (
@@ -43,8 +44,7 @@ export const LeftSidePanel = () => {
 
           {/* Custom CSS */}
           <TreeItem itemId="customCSS" label="Custom CSS">
-            <TreeItem itemId="globalStyles" label="Global Styles" />
-            <TreeItem itemId="cssEditor" label="CSS Editor" />
+            <CustomCssEditor />
           </TreeItem>
         </SimpleTreeView>
       </Box>
