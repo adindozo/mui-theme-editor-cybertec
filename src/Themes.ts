@@ -21,6 +21,18 @@ export const lightTheme = {
         },
       },
     },
+    MuiButton: {
+      defaultProps: {
+        size: "small",
+        variant: "outlined",
+        color: "success",
+      },
+    },
+    MuiAppBar: {
+      defaultProps: {
+        position: "sticky",
+      },
+    },
   },
   palette: {
     mode: "light",
@@ -307,6 +319,18 @@ export const darkTheme = {
         "*": {
           transition: "background-color 0.2s ease, color 0.2s ease",
         },
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        size: "small",
+        variant: "outlined",
+        color: "success",
+      },
+    },
+    MuiAppBar: {
+      defaultProps: {
+        position: "sticky",
       },
     },
   },

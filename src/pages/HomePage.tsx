@@ -24,6 +24,7 @@ export default function HomePage() {
   if (!context) return null;
 
   const { themeSwitch, darkTheme, lightTheme } = context;
+  console.log(lightTheme);
 
   return (
     <ThemeProvider
@@ -130,6 +131,7 @@ export default function HomePage() {
             ))}
           </Grid>
         </Box>
+        <Button>Button here</Button>
 
         <Box sx={{ padding: 2 }}>
           <Typography variant="h1" gutterBottom>

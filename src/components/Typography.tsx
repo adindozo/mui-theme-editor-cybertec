@@ -11,7 +11,6 @@ import { TreeItem } from "@mui/x-tree-view";
 import React, { useContext } from "react";
 import { ThemeContext } from "../App";
 import GoogleFontsList from "./GoogleFontsList";
-import { Container } from "lucide-react";
 import AddGoogleFont from "./AddGoogleFont";
 
 export const Typography = () => {
@@ -52,7 +51,6 @@ export const Typography = () => {
     }
   };
   function removeLetters(input) {
-    console.log(input);
     return input?.replace(/[^0-9.-]/g, "");
   }
   const convertLetterSpacingToNumber = (letterSpacing) => {

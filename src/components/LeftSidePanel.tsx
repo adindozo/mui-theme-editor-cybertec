@@ -4,6 +4,7 @@ import React from "react";
 import { Colors } from "./Colors";
 import { Typography } from "./Typography";
 import CustomCssEditor from "./CustomCssEditor";
+import { ComponentOverridesEditor } from "./ComponentOverridesEditor";
 
 export const LeftSidePanel = () => {
   return (
@@ -29,18 +30,7 @@ export const LeftSidePanel = () => {
             />
           </TreeItem>
 
-          {/* Component Overrides */}
-          <TreeItem itemId="componentOverrides" label="Component Overrides">
-            <TreeItem itemId="buttons" label="Buttons" />
-            <TreeItem itemId="appBar" label="App Bar" />
-            <TreeItem itemId="textField" label="Text Field" />
-          </TreeItem>
-
-          {/* Font Management */}
-          <TreeItem itemId="fonts" label="Font Management">
-            <TreeItem itemId="uploadFont" label="Upload Custom Font" />
-            <TreeItem itemId="googleFonts" label="Google Fonts" />
-          </TreeItem>
+          <ComponentOverridesEditor />
 
           {/* Custom CSS */}
           <TreeItem itemId="customCSS" label="Custom CSS">
