@@ -6,6 +6,7 @@ import {
   Container,
   CssBaseline,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
@@ -132,6 +133,7 @@ export default function HomePage() {
           </Grid>
         </Box>
         <Button>Button here</Button>
+        <TextField />
 
         <Box sx={{ padding: 2 }}>
           <Typography variant="h1" gutterBottom>

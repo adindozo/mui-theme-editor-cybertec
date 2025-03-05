@@ -34,7 +34,7 @@ export default function Header() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); // Show menu on small screens
 
   return (
-    <AppBar position="sticky">
+    <AppBar>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Cybertec PostgreSQL

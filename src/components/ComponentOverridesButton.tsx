@@ -11,7 +11,6 @@ export const ComponentOverridesButton = () => {
     context;
   return (
     <TreeItem itemId="buttons" label="Button">
-      {/*//size variant color */}
       <p variant="h6" style={{ margin: "0px" }}>{`Button Size`}</p>
       <Select
         value={
@@ -50,6 +49,7 @@ export const ComponentOverridesButton = () => {
             });
           }
         }}
+        sx={{ mb: 2 }}
       >
         <MenuItem value={"small"}>Small</MenuItem>
         <MenuItem value={"medium"}>Medium</MenuItem>
@@ -57,6 +57,7 @@ export const ComponentOverridesButton = () => {
       </Select>
       <p variant="h6" style={{ margin: "0px" }}>{`Button Variant`}</p>
       <Select
+        sx={{ mb: 2 }}
         value={
           themeSwitch === "light"
             ? lightTheme.components.MuiButton.defaultProps.variant

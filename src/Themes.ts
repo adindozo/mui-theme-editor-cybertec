@@ -33,6 +33,15 @@ export const lightTheme = {
         position: "sticky",
       },
     },
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+        error: false,
+        disabled: false,
+        helperText: "helper text",
+        label: "label",
+      },
+    },
   },
   palette: {
     mode: "light",
@@ -331,6 +340,15 @@ export const darkTheme = {
     MuiAppBar: {
       defaultProps: {
         position: "sticky",
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+        error: false,
+        disabled: false,
+        helperText: "helper text",
+        label: "label",
       },
     },
   },
