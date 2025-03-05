@@ -5,12 +5,14 @@ import { Colors } from "./Colors";
 import { Typography } from "./Typography";
 import CustomCssEditor from "./CustomCssEditor";
 import { ComponentOverridesEditor } from "./ComponentOverridesEditor";
+import { SpacingAndBreakpoints } from "./SpacingAndBreakpoints";
 
 export const LeftSidePanel = () => {
   return (
     <Box
       sx={{
         minWidth: "400px",
+        maxWidth: "400px",
         maxHeight: "calc(100vh - 64px)",
         backgroundColor: "#f0f0f0",
         color: "black",
@@ -21,18 +23,8 @@ export const LeftSidePanel = () => {
         <SimpleTreeView>
           <Colors />
           <Typography />
-
-          <TreeItem itemId="spacing" label="Spacing & Breakpoints">
-            <TreeItem itemId="spacingScale" label="Spacing Scale" />
-            <TreeItem
-              itemId="breakpoints"
-              label="Breakpoints (xs, sm, md, lg, xl)"
-            />
-          </TreeItem>
-
+          <SpacingAndBreakpoints />
           <ComponentOverridesEditor />
-
-          {/* Custom CSS */}
           <TreeItem itemId="customCSS" label="Custom CSS">
             <CustomCssEditor />
           </TreeItem>

@@ -25,7 +25,7 @@ export default function HomePage() {
   if (!context) return null;
 
   const { themeSwitch, darkTheme, lightTheme } = context;
-  console.log(lightTheme);
+  console.log(createTheme(darkTheme).spacing(50));
 
   return (
     <ThemeProvider
@@ -135,6 +135,96 @@ export default function HomePage() {
         <Button>Button here</Button>
         <TextField />
 
+        <Box
+          sx={{
+            m: 1, // margin: 4px (from spacing array)
+            p: 1, // padding: 4px (from spacing array)
+            backgroundColor: "lightblue", // Main box color
+            position: "relative",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: "-4px",
+              left: "-4px",
+              right: "-4px",
+              bottom: "-4px",
+              backgroundColor: "papayawhip", // Vanilla color for margin
+              zIndex: -1,
+            },
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              backgroundColor: "lightgreen", // Green color for padding
+              zIndex: -1,
+            },
+          }}
+        >
+          Margin 1, Padding 1
+        </Box>
+        <Box
+          sx={{
+            m: 2, // margin: 4px (from spacing array)
+            p: 2, // padding: 4px (from spacing array)
+            backgroundColor: "lightblue", // Main box color
+            position: "relative",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: "-4px",
+              left: "-4px",
+              right: "-4px",
+              bottom: "-4px",
+              backgroundColor: "papayawhip", // Vanilla color for margin
+              zIndex: -1,
+            },
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              backgroundColor: "lightgreen", // Green color for padding
+              zIndex: -1,
+            },
+          }}
+        >
+          Margin 2, Padding 2
+        </Box>
+        <Box
+          sx={{
+            m: 8, // margin: 4px (from spacing array)
+            p: 8, // padding: 4px (from spacing array)
+            backgroundColor: "lightblue", // Main box color
+            position: "relative",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: "-4px",
+              left: "-4px",
+              right: "-4px",
+              bottom: "-4px",
+              backgroundColor: "papayawhip", // Vanilla color for margin
+              zIndex: -1,
+            },
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              backgroundColor: "lightgreen", // Green color for padding
+              zIndex: -1,
+            },
+          }}
+        >
+          Margin 8, Padding 8
+        </Box>
         <Box sx={{ padding: 2 }}>
           <Typography variant="h1" gutterBottom>
             h1 text Lorem ipsum dolor sit amet.

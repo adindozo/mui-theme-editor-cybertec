@@ -1,6 +1,7 @@
 // Default JSON object creator for light and dark themes
 
 export const lightTheme = {
+  spacing: 8,
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
     values: {
@@ -310,6 +311,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  spacing: 8,
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
     values: {
