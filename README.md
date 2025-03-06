@@ -55,15 +55,16 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 ### **Customization Panel **
 
 - **Left Sidebar:**
-  - Modify theme colors, typography, spacing, and component overrides.
+  - Modify theme colors, typography, spacing, component overrides, etc.
   - Upload Google Fonts (one per link) and apply them.
   - Manage loaded fonts.
+  - **Custom CSS Editor:** Auto-saves without requiring a save button.
+
 - **Top Panel:**
   - **Light/Dark Mode Toggle:** Switch between theme modes (each has independent settings).
   - **Upload/Download JSON:** Export or import a theme configuration.
   - **Reset Theme:** Revert to the default Material-UI theme.
   - **Save Theme:** Write current settings to local storage for persistence.
-  - **Custom CSS Editor:** Auto-saves without requiring a save button.
 
 ## **Setup Instructions**
 
