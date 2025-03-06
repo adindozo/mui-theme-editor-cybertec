@@ -7,25 +7,34 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 ## Live Preview
 
 - A preview of the default Material-UI theme is available at `/`
-- The full theme editor interface is accessible at `/customize`, where users can modify theme settings and see live updates.
+- The full theme editor interface is accessible at `/customize`, where users can modify theme settings and see live updates in real-time dynamically.
 
 ## Features
 
 ### **Theme Editor Functionality**
 
-✅ **Color Customization:** Modify all color properties in the Material-UI palette, including background and text colors. ✅ **Typography Settings:**
+✅ **Color Customization:** 
+- Modify all color properties in the Material-UI palette, including background and text colors. 
 
+✅ **Typography Settings:**
 - Change font family (upload or link to new fonts via Google Fonts).
 - Modify font sizes for headings (h1–h6), body text, and captions.
-- Adjust font weights and letter spacing. ✅ **Spacing & Breakpoints:**
+- Adjust font weights and letter spacing. 
+✅ **Spacing & Breakpoints:**
 - Customize the spacing scale (e.g., 4px, 8px, etc.).
-- Edit breakpoints for responsive design (xs, sm, md, lg, xl). ✅ **Component Overrides:** Modify default styles of Material-UI components (e.g., Buttons, AppBar, TextField). ✅ **Custom CSS Injection:** Add global CSS styles via an embedded editor (auto-saved without a save button). ✅ **Dark & Light Mode Toggle:**
+- Edit breakpoints for responsive design (xs, sm, md, lg, xl). 
+✅ **Component Overrides:** Modify default styles of Material-UI components (e.g., Buttons, AppBar, TextField). 
+✅ **Custom CSS Injection:** Add global CSS styles via an embedded editor (auto-saved without a save button). 
+✅ **Dark & Light Mode Toggle:**
 - Fully independent customization for dark and light themes.
-- Seamlessly switch between themes with saved settings. ✅ **Font Management:**
+- Seamlessly switch between themes with saved settings. 
+✅ **Font Management:**
 - Upload custom fonts or input a Google Font URL.
-- Apply loaded fonts dynamically. ✅ **Export & Import Theme:**
+- Apply loaded fonts dynamically. 
+✅ **Export & Import Theme:**
 - Export the current theme configuration as a JSON file.
-- Import a JSON theme to apply saved settings. ✅ **Persistent Storage:**
+- Import a JSON theme to apply saved settings.
+ ✅ **Persistent Storage:**
 - Theme settings are saved to local storage and persist between sessions.
 
 ## **Editor UI Layout**
@@ -54,7 +63,7 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/mui-theme-editor.git
+   git clone https://github.com/adindozo/mui-theme-editor-cybertec
    cd mui-theme-editor
    ```
 2. Install dependencies:
@@ -74,13 +83,13 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 ## **Technical Stack**
 
 - **Frontend:** React + TypeScript
-- **Styling:** Material-UI v5
+- **Styling:** Material-UI 
 - **State Management:** React Context
 - **Build Tooling:** Vite
 - **Additional Libraries:**
   - `@mui/lab` (for advanced UI components)
   - `react-color` (for color pickers)
-  - `CodeMirror` or `Monaco Editor` (for CSS editing)
+  - `CodeMirror` (for CSS editing)
 
 ## **Contributing**
 
@@ -94,5 +103,5 @@ Pull requests and issues are welcome! To contribute:
 
 ---
 
-Let us know if you have any questions or need additional features! 🚀
+Let me know (contact info at adindozo.info) if you have any questions or need additional features! 🚀
 
