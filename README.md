@@ -1,50 +1,98 @@
-# React + TypeScript + Vite
+# Material-UI Theme Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The **Material-UI Theme Editor** is a full-featured theme customization tool built with React and TypeScript. It allows users to dynamically modify every aspect of a Material-UI theme in real time, including colors, typography, spacing, and component overrides. The customized theme is saved and persists across sessions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Preview
 
-## Expanding the ESLint configuration
+- A preview of the default Material-UI theme is available at `/`
+- The full theme editor interface is accessible at `/customize`, where users can modify theme settings and see live updates.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+### **Theme Editor Functionality**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+✅ **Color Customization:** Modify all color properties in the Material-UI palette, including background and text colors. ✅ **Typography Settings:**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Change font family (upload or link to new fonts via Google Fonts).
+- Modify font sizes for headings (h1–h6), body text, and captions.
+- Adjust font weights and letter spacing. ✅ **Spacing & Breakpoints:**
+- Customize the spacing scale (e.g., 4px, 8px, etc.).
+- Edit breakpoints for responsive design (xs, sm, md, lg, xl). ✅ **Component Overrides:** Modify default styles of Material-UI components (e.g., Buttons, AppBar, TextField). ✅ **Custom CSS Injection:** Add global CSS styles via an embedded editor (auto-saved without a save button). ✅ **Dark & Light Mode Toggle:**
+- Fully independent customization for dark and light themes.
+- Seamlessly switch between themes with saved settings. ✅ **Font Management:**
+- Upload custom fonts or input a Google Font URL.
+- Apply loaded fonts dynamically. ✅ **Export & Import Theme:**
+- Export the current theme configuration as a JSON file.
+- Import a JSON theme to apply saved settings. ✅ **Persistent Storage:**
+- Theme settings are saved to local storage and persist between sessions.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## **Editor UI Layout**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### **Customization Panel (**\`\`**)**
+
+- **Left Sidebar:**
+  - Modify theme colors, typography, spacing, and component overrides.
+  - Upload Google Fonts (one per link) and apply them.
+  - Manage loaded fonts.
+- **Top Panel:**
+  - **Light/Dark Mode Toggle:** Switch between theme modes (each has independent settings).
+  - **Upload/Download JSON:** Export or import a theme configuration.
+  - **Reset Theme:** Revert to the default Material-UI theme.
+  - **Save Theme:** Write current settings to local storage for persistence.
+  - **Custom CSS Editor:** Auto-saves without requiring a save button.
+
+## **Setup Instructions**
+
+### **Requirements**
+
+- Node.js (v16 or later)
+- npm or yarn
+
+### **Installation**
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/mui-theme-editor.git
+   cd mui-theme-editor
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+4. Open `http://localhost:5173/` in your browser.
+
+## **Technical Stack**
+
+- **Frontend:** React + TypeScript
+- **Styling:** Material-UI v5
+- **State Management:** React Context
+- **Build Tooling:** Vite
+- **Additional Libraries:**
+  - `@mui/lab` (for advanced UI components)
+  - `react-color` (for color pickers)
+  - `CodeMirror` or `Monaco Editor` (for CSS editing)
+
+## **Contributing**
+
+Pull requests and issues are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and commit them.
+4. Push to your fork and submit a PR.
+
+
+---
+
+Let us know if you have any questions or need additional features! 🚀
+
