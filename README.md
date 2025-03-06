@@ -40,7 +40,7 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 - Seamlessly switch between themes with saved settings. 
 
 ✅ **Font Management:**
-- Upload custom fonts or input a Google Font URL.
+- Input a Google Font URL (one font per one url).
 - Apply loaded fonts dynamically. 
 
 ✅ **Export & Import Theme:**
@@ -52,7 +52,7 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 
 ## **Editor UI Layout**
 
-### **Customization Panel (**\`\`**)**
+### **Customization Panel **
 
 - **Left Sidebar:**
   - Modify theme colors, typography, spacing, and component overrides.
