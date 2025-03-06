@@ -23,7 +23,7 @@ export const lightTheme = {
     MuiButton: {
       defaultProps: {
         size: "small",
-        variant: "outlined",
+        variant: "text",
         color: "success",
       },
     },
@@ -55,9 +55,9 @@ export const lightTheme = {
       contrastText: "#fff",
     },
     secondary: {
-      main: "#9c27b0",
-      light: "#ba68c8",
-      dark: "#7b1fa2",
+      main: "#49d3e6",
+      light: "#49d3e6",
+      dark: "#49d3e6",
       contrastText: "#fff",
     },
     error: {
@@ -341,7 +341,7 @@ export const darkTheme = {
     MuiButton: {
       defaultProps: {
         size: "small",
-        variant: "outlined",
+        variant: "text",
         color: "success",
       },
     },
@@ -373,9 +373,9 @@ export const darkTheme = {
       contrastText: "rgba(0, 0, 0, 0.87)",
     },
     secondary: {
-      main: "#ce93d8",
-      light: "#f3e5f5",
-      dark: "#ab47bc",
+      main: "#3269a8",
+      light: "#3269a8",
+      dark: "#3269a8",
       contrastText: "rgba(0, 0, 0, 0.87)",
     },
     error: {

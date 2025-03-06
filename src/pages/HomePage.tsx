@@ -15,11 +15,7 @@ import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ThemeContext } from "../App";
 import { useContext } from "react";
-const texts = [
-  "This is the first paper's text.",
-  "Here is some content for the second paper.",
-  "And this is what appears on the third paper.",
-];
+
 export default function HomePage() {
   const context = useContext(ThemeContext);
   if (!context) return null;
@@ -50,30 +46,25 @@ export default function HomePage() {
             bgcolor: "background.default",
             justifyContent: "center",
             alignItems: "center",
+            // backgroundColor: "secondary.main",
           }}
         >
           <Typography variant="h1" gutterBottom>
-            Reliable PostgreSQL Consulting
+            h1 Reliable PostgreSQL Consulting
           </Typography>
           <Typography variant="h5" color="text.secondary" paragraph>
-            Cybertec provides world-class database consulting, performance
+            h5 Cybertec provides world-class database consulting, performance
             optimization, and custom solutions to help your business thrive.
           </Typography>
           <Button variant="contained" color="primary" size="large">
             Get Started
           </Button>
         </Box>
-        <Typography component="div">
-          <Box sx={{ fontWeight: "light", m: 1 }}>Light Font Weight</Box>
-          <Box sx={{ fontWeight: "regular", m: 1 }}>Regular Font Weight</Box>
-          <Box sx={{ fontWeight: "medium", m: 1 }}>Medium Font Weight</Box>
-          <Box sx={{ fontWeight: 500, m: 1 }}>500 Font Weight</Box>
-          <Box sx={{ fontWeight: "bold", m: 1 }}>Bold Font Weight</Box>
-        </Typography>
+
         {/* FEATURED SERVICES */}
         <Container sx={{ py: 6 }}>
           <Typography variant="h2" align="center" gutterBottom>
-            Our Services
+            Secondary color
           </Typography>
           <Grid container spacing={4}>
             {[
@@ -95,7 +86,13 @@ export default function HomePage() {
               },
             ].map((service) => (
               <Grid size={6} key={service.title}>
-                <Card sx={{ textAlign: "center", p: 2 }}>
+                <Card
+                  sx={{
+                    textAlign: "center",
+                    p: 2,
+                    backgroundColor: "secondary.main",
+                  }}
+                >
                   <CardContent>
                     <Typography variant="h5" gutterBottom>
                       {service.title}
@@ -110,7 +107,14 @@ export default function HomePage() {
           </Grid>
         </Container>
         {/* CLIENT LOGOS */}
-        <Box sx={{ textAlign: "center", py: 6, bgcolor: "background.paper" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            py: 6,
+            bgcolor: "background.paper",
+            backgroundColor: "secondary.main",
+          }}
+        >
           <Typography variant="h2" gutterBottom>
             Trusted by Leading Companies
           </Typography>
@@ -126,104 +130,45 @@ export default function HomePage() {
                 <Box
                   component="img"
                   src={logo}
-                  sx={{ width: "250px", maxWidth: "100%", height: "auto" }}
+                  sx={{
+                    width: "250px",
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
                 />
               </Grid>
             ))}
           </Grid>
         </Box>
-        <Button>Button here</Button>
-        <TextField />
 
-        <Box
-          sx={{
-            m: 1, // margin: 4px (from spacing array)
-            p: 1, // padding: 4px (from spacing array)
-            backgroundColor: "lightblue", // Main box color
-            position: "relative",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: "-4px",
-              left: "-4px",
-              right: "-4px",
-              bottom: "-4px",
-              backgroundColor: "papayawhip", // Vanilla color for margin
-              zIndex: -1,
-            },
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              top: "0",
-              left: "0",
-              right: "0",
-              bottom: "0",
-              backgroundColor: "lightgreen", // Green color for padding
-              zIndex: -1,
-            },
-          }}
-        >
-          Margin 1, Padding 1
-        </Box>
-        <Box
-          sx={{
-            m: 2, // margin: 4px (from spacing array)
-            p: 2, // padding: 4px (from spacing array)
-            backgroundColor: "lightblue", // Main box color
-            position: "relative",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: "-4px",
-              left: "-4px",
-              right: "-4px",
-              bottom: "-4px",
-              backgroundColor: "papayawhip", // Vanilla color for margin
-              zIndex: -1,
-            },
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              top: "0",
-              left: "0",
-              right: "0",
-              bottom: "0",
-              backgroundColor: "lightgreen", // Green color for padding
-              zIndex: -1,
-            },
-          }}
-        >
-          Margin 2, Padding 2
-        </Box>
-        <Box
-          sx={{
-            m: 8, // margin: 4px (from spacing array)
-            p: 8, // padding: 4px (from spacing array)
-            backgroundColor: "lightblue", // Main box color
-            position: "relative",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: "-4px",
-              left: "-4px",
-              right: "-4px",
-              bottom: "-4px",
-              backgroundColor: "papayawhip", // Vanilla color for margin
-              zIndex: -1,
-            },
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              top: "0",
-              left: "0",
-              right: "0",
-              bottom: "0",
-              backgroundColor: "lightgreen", // Green color for padding
-              zIndex: -1,
-            },
-          }}
-        >
-          Margin 8, Padding 8
+        <Box sx={{ backgroundColor: "papayawhip", p: 2 }}>
+          <Box
+            sx={{
+              m: 1,
+              p: 1, //
+              backgroundColor: "lightgreen",
+            }}
+          >
+            Margin 1, Padding 1
+          </Box>
+          <Box
+            sx={{
+              m: 4,
+              p: 4, //
+              backgroundColor: "lightgreen",
+            }}
+          >
+            Margin 4, Padding 4
+          </Box>
+          <Box
+            sx={{
+              m: 8,
+              p: 8, //
+              backgroundColor: "lightgreen",
+            }}
+          >
+            Margin 8, Padding 8
+          </Box>
         </Box>
         <Box sx={{ padding: 2 }}>
           <Typography variant="h1" gutterBottom>
@@ -252,7 +197,7 @@ export default function HomePage() {
             in elit
           </Typography>
           <Typography variant="h6" gutterBottom>
-            h5 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            h6 text Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Curabitur venenatis felis at nunc malesuada, a tincidunt lectus
             tincidunt. Nam ornare, ligula non faucibus lobortis, sapien arcu
             interdum felis, ac fermentum purus magna et nunc. Integer vel libero
@@ -272,36 +217,22 @@ export default function HomePage() {
             Integer sollicitudin ex non risus luctus, vitae cursus enim varius.
           </Typography>
           <Typography variant="caption">Caption text here</Typography>
-          <Box
-            display="flex"
-            justifyContent="center"
-            gap={3}
-            flexWrap="wrap"
-            m={9}
-          >
-            {texts.slice(0, 3).map((text, index) => (
-              <Paper
-                key={index}
-                elevation={3}
-                sx={{
-                  padding: 3,
-                  textAlign: "center",
-                  minHeight: 150,
-                  width: 200,
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography variant="h6">Paper {index + 1}</Typography>
-                <Typography variant="body1" sx={{ mt: 1 }}>
-                  {text}
-                </Typography>
-              </Paper>
-            ))}
-          </Box>
         </Box>
-        {/* <FixedBottomNavigation /> */}
+        <Typography component="div">
+          <Box sx={{ fontWeight: "light", m: 1 }}>Light Font Weight</Box>
+          <Box sx={{ fontWeight: "regular", m: 1 }}>Regular Font Weight</Box>
+          <Box sx={{ fontWeight: "medium", m: 1 }}>Medium Font Weight</Box>
+          <Box sx={{ fontWeight: 500, m: 1 }}>500 Font Weight</Box>
+          <Box sx={{ fontWeight: "bold", m: 1 }}>Bold Font Weight</Box>
+        </Typography>
+        <Button>Button</Button>
+        <p>
+          <TextField />
+        </p>
+        <Button>Button</Button>
+        <p>
+          <TextField />
+        </p>
       </Container>
       <Footer />
     </ThemeProvider>

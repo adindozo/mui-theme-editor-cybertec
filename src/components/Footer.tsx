@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#2c3e50",
+        bgcolor: "primary.main",
         color: "white",
         py: 5,
         px: 3,

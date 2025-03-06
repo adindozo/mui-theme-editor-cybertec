@@ -172,6 +172,9 @@ export const Typography = () => {
           {[1, 2, 3, 4, 5, 6].map((headingLevel) => (
             <Box key={headingLevel}>
               <TextField
+                onKeyDown={(e) => {
+                  e.stopPropagation();
+                }}
                 sx={{ mt: 2 }}
                 label={`h${headingLevel} Font Size in px`}
                 type="number"
@@ -219,6 +222,9 @@ export const Typography = () => {
         {/*Modify font sizes for  body text and captions. */}
         <Box sx={{ ml: 2 }}>
           <TextField
+            onKeyDown={(e) => {
+              e.stopPropagation();
+            }}
             sx={{ mt: 2 }}
             label="Body Text Font Size in px"
             type="number"
@@ -256,6 +262,9 @@ export const Typography = () => {
           />
           <TextField
             sx={{ mt: 2 }}
+            onKeyDown={(e) => {
+              e.stopPropagation();
+            }}
             label="Caption Font Size in px"
             type="number"
             value={
@@ -297,6 +306,9 @@ export const Typography = () => {
           <Box>
             Font Weight Light
             <Input
+              onKeyDown={(e) => {
+                e.stopPropagation();
+              }}
               sx={{ ml: 4 }}
               type="number"
               value={
@@ -374,6 +386,9 @@ export const Typography = () => {
           <Box>
             Font Weight Regular
             <Input
+              onKeyDown={(e) => {
+                e.stopPropagation();
+              }}
               sx={{ ml: 2 }}
               type="number"
               value={
@@ -451,6 +466,9 @@ export const Typography = () => {
           <Box>
             Font Weight Medium
             <Input
+              onKeyDown={(e) => {
+                e.stopPropagation();
+              }}
               sx={{ ml: 2 }}
               type="number"
               value={
@@ -529,6 +547,9 @@ export const Typography = () => {
           <Box>
             Font Weight Bold
             <Input
+              onKeyDown={(e) => {
+                e.stopPropagation();
+              }}
               sx={{ ml: 2 }}
               type="number"
               value={
@@ -608,7 +629,10 @@ export const Typography = () => {
           {[1, 2, 3, 4, 5, 6].map((headingLevel) => (
             <Box key={headingLevel}>
               <TextField
-                sx={{ mt: 2 }}
+                onKeyDown={(e) => {
+                  e.stopPropagation();
+                }}
+                sx={{ mt: 2, width: "100%" }}
                 label={`h${headingLevel} Letter spacing in %`}
                 type="number"
                 inputProps={{ min: -100, max: 100 }}

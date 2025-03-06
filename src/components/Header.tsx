@@ -35,9 +35,9 @@ export default function Header() {
 
   return (
     <AppBar>
-      <Toolbar>
+      <Toolbar sx={{ backgroundColor: (theme) => theme.palette.primary.main }}>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Cybertec PostgreSQL
+          AppBar
         </Typography>
         <MaterialUISwitch
           checked={themeSwitch === "dark"}

@@ -129,6 +129,7 @@ export const UpperPanel = () => {
               startIcon={<LockReset />}
               sx={{ textTransform: "none" }}
               onClick={() => {
+                localStorage.clear();
                 setLightTheme(defaultLightTheme);
                 setDarkTheme(defaultDarkTheme);
                 setGooglefonts(defaultFonts);

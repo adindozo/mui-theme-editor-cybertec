@@ -54,7 +54,7 @@ const CustomCssEditor: React.FC = () => {
 
   return (
     <div>
-      <h3>Custom CSS</h3>
+      <h3>Custom CSS | Autosave</h3>
       <div
         onKeyDown={(e) => e.stopPropagation()}
         ref={editorRef}
