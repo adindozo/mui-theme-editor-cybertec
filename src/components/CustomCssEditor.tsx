@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { EditorState } from "@codemirror/state";
 import { EditorView, basicSetup } from "codemirror";
 import { css } from "@codemirror/lang-css";
+import { ThemeContext } from "../App";
 
 const CustomCssEditor: React.FC = () => {
   const editorRef = useRef<HTMLDivElement>(null);
   const styleTagId = "custom-css-style";
-
+  const context = useContext(ThemeContext);
+  if (!context) return null;
+  const { customcssc, setCustomcssc } = context;
   useEffect(() => {
-    const savedCss = localStorage.getItem("customCSS") || "";
+    const savedCss = customcssc || "";
+    applyGlobalCss(savedCss);
 
     const state = EditorState.create({
       doc: savedCss,
@@ -19,7 +23,8 @@ const CustomCssEditor: React.FC = () => {
           if (update.docChanged) {
             const newCss = update.state.doc.toString();
             applyGlobalCss(newCss);
-            // localStorage.setItem("customCSS", newCss);
+            setCustomcssc(newCss);
+            localStorage.setItem("customCSS", newCss);
           }
         }),
       ],

@@ -48,8 +48,8 @@ const CustomizeThemePage = () => {
             <Box
               key={view}
               sx={{
-                width: "100%", // Full screen for desktop view
-                height: "calc(100vh - 64px)", // Subtract height of AppBar
+                width: "100%",
+                height: "calc(100vh - 64px)",
                 overflowY: "auto",
                 transition: "width 0.3s ease-in-out, margin 0.3s ease-in-out",
               }}

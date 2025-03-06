@@ -1,5 +1,3 @@
-// Default JSON object creator for light and dark themes
-
 export const lightTheme = {
   spacing: 8,
   breakpoints: {
@@ -309,6 +307,14 @@ export const lightTheme = {
     tooltip: 1500,
   },
 };
+
+export const defaultFonts: string[] = [
+  "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap",
+];
 
 export const darkTheme = {
   spacing: 8,

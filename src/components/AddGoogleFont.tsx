@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { ThemeContext } from "../App"; // Adjust import path if needed
+import { ThemeContext } from "../App";
 import {
   Box,
   TextField,
@@ -24,9 +24,8 @@ const AddGoogleFont = () => {
 
   const { googlefonts, setGooglefonts } = context;
 
-  // Regex pattern for Google Fonts URLs
   const isValidGoogleFontUrl = (url: string) => {
-    return /^https:\/\/fonts\.googleapis\.com\/css2\?family=[A-Za-z0-9+:\-,&]+(&[a-z]+=.*)*$/.test(
+    return /^https:\/\/fonts\.googleapis\.com\/css2\?family=[A-Za-z0-9+,-]+(:[A-Za-z]+(?:,[A-Za-z]+)?@[0-9]+(?:\.\.[0-9]+)?(?:,[0-9]+(?:\.\.[0-9]+)?)*)?(?:&(?:display|subset)=[A-Za-z0-9,_-]+)*$/.test(
       url,
     );
   };
@@ -49,10 +48,10 @@ const AddGoogleFont = () => {
         const contentType = response.headers.get("content-type") || "";
 
         if (contentType.includes("text/css")) {
-          const updatedFonts = [...googlefonts, fontUrl];
-          setGooglefonts(updatedFonts);
-          // localStorage.setItem("googlefonts", JSON.stringify(updatedFonts));
-          setFontUrl(""); // Reset input field
+          if (!googlefonts.includes(fontUrl)) {
+            setGooglefonts([...googlefonts, fontUrl]);
+          }
+          setFontUrl("");
         } else {
           setErrorMessage(
             "Invalid Google Fonts URL. Please use a valid Font CSS link.",
@@ -74,7 +73,7 @@ const AddGoogleFont = () => {
         <TextField
           onKeyDown={handleKeyDown}
           sx={{ ml: 2, flexGrow: 1 }}
-          label="Google Font URL"
+          label="Google Font URL (one per url)"
           variant="outlined"
           value={fontUrl}
           onChange={(e) => setFontUrl(e.target.value)}
