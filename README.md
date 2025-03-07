@@ -82,9 +82,9 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
    ```
 2. Install dependencies:
    ```sh
-   npm install
+   npm install --legacy-peer-deps
    # or
-   yarn install
+   yarn install --legacy-peer-deps
    ```
 3. Start the development server:
    ```sh
