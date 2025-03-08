@@ -92,9 +92,11 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<HomePage />} />
         <Route path="/mui-theme-editor-cybertec" element={<HomePage />} />
-        <Route path="/customize" element={<CustomizeThemePage />} />
+        <Route
+          path="/mui-theme-editor-cybertec/customize"
+          element={<CustomizeThemePage />}
+        />
       </Routes>
     </ThemeContext.Provider>
   );
