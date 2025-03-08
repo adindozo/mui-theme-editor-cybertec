@@ -1,17 +1,9 @@
-import {
-  AppBar,
-  Button,
-  ToggleButton,
-  ToggleButtonGroup,
-  Toolbar,
-} from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import React, { useContext, useState } from "react";
 import MaterialUISwitch from "./MaterialUISwitch";
 import { ThemeContext } from "../App";
 import DownloadIcon from "@mui/icons-material/Download";
 import { UploadFile, LockReset } from "@mui/icons-material";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import ComputerIcon from "@mui/icons-material/Computer";
 import {
   darkTheme as defaultDarkTheme,
   defaultFonts,
@@ -27,12 +19,12 @@ export const UpperPanel = () => {
     setThemeSwitch,
     setLightTheme,
     setDarkTheme,
-    setView,
     darkTheme,
     lightTheme,
     googlefonts,
     setGooglefonts,
     setCustomcssc,
+    customcssc,
   } = context;
   const handleDownload = (): void => {
     const localStorageData: Record<string, any> = {};
@@ -145,7 +137,9 @@ export const UpperPanel = () => {
               localStorage.setItem("darkTheme", JSON.stringify(darkTheme));
               localStorage.setItem("lightTheme", JSON.stringify(lightTheme));
               localStorage.setItem("googlefonts", JSON.stringify(googlefonts));
+              localStorage.setItem("customCSS", customcssc);
             }}
+            variant="contained"
           >
             Save
           </Button>

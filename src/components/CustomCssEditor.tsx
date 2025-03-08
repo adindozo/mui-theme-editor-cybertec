@@ -24,7 +24,6 @@ const CustomCssEditor: React.FC = () => {
             const newCss = update.state.doc.toString();
             applyGlobalCss(newCss);
             setCustomcssc(newCss);
-            localStorage.setItem("customCSS", newCss);
           }
         }),
       ],
@@ -49,12 +48,12 @@ const CustomCssEditor: React.FC = () => {
       document.head.appendChild(styleTag);
     }
 
-    styleTag.innerHTML = cssCode;
+    styleTag.innerHTML = `.verylonganduniqueclassname { ${cssCode} }`;
   };
 
   return (
     <div>
-      <h3>Custom CSS | Autosave</h3>
+      <h3>Custom CSS</h3>
       <div
         onKeyDown={(e) => e.stopPropagation()}
         ref={editorRef}
