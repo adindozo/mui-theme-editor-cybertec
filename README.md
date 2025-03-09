@@ -9,6 +9,12 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 - A preview of the default Material-UI theme is available at `/`
 - The full theme editor interface is accessible at `/customize`, where users can modify theme settings and see live updates in real-time dynamically.
 
+## Live Demo
+
+- The application is hosted at: [https://adindozo.github.io/mui-theme-editor-cybertec/](https://adindozo.github.io/mui-theme-editor-cybertec/)
+- To customize the theme, visit: [https://adindozo.github.io/mui-theme-editor-cybertec/#/customize](https://adindozo.github.io/mui-theme-editor-cybertec/#/customize)
+
+
 ## Features
 
 ### **Theme Editor Functionality**
@@ -44,7 +50,7 @@ The **Material-UI Theme Editor** is a full-featured theme customization tool bui
 - Apply loaded fonts dynamically. 
 
 ✅ **Export & Import Theme:**
-- Export the current theme configuration as a JSON file.
+- Export the currently saved theme configuration as a JSON file.
 - Import a JSON theme to apply saved settings.
 
  ✅ **Persistent Storage:**
